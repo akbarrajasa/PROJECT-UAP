@@ -17,6 +17,7 @@ Game ini seperti kehidupan kita di perkuliahan yang berusaha melewati setiap rin
 2. S/Panah Bawah : Mundur
 3. D/Panah Kanan : Geser Kanan
 4. A/Panah Kiri : Geser Kiri
+5. Q : Keluar dari Game
 
 ## 🔥TUKANG NGODING
 1. M. Akbar Rajasa (2517051051)
