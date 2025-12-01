@@ -4,11 +4,29 @@ using namespace std;
 
 int main()
 {
-    int x = 10, y = 10; // posisi awal teks
-    int ch;
 
-    // Inisialisasi ncurses
-    initscr(); // Memulai mode ncurses
+    initscr();
+
+    curs_set(0);
+
+    int max_y;
+    int max_x;
+
+    getmaxyx(stdscr, max_y, max_x);
+
+    int posisiJudulx = (max_x - 114) / 2;
+    int posisiJuduly = max_y / 2;
+
+    mvprintw(posisiJuduly - 2, posisiJudulx, "    ___   _____ ____  ____  _____     __ __ ______    __    __________      ___________ _________    ____  ______");
+    mvprintw(posisiJuduly - 1, posisiJudulx, "   /   | / ___// __ \\/ __ \\/ ___/    / //_//  _/ /   / /   / ____/ __ \\    / ____/ ___// ____/   |  / __ \\/ ____/");
+    mvprintw(posisiJuduly, posisiJudulx, "  / /| | \\__ \\/ / / / / / /\\__ \\    / ,<   / // /   / /   / __/ / /_/ /   / __/  \\__ \\/ /   / /| | / /_/ / __/   ");
+    mvprintw(posisiJuduly + 1, posisiJudulx, " / ___ |___/ / /_/ / /_/ /___/ /   / /| |_/ // /___/ /___/ /___/ _, _/   / /___ ___/ / /___/ ___ |/ ____/ /___   ");
+    mvprintw(posisiJuduly + 2, posisiJudulx, "/_/  |_/____/_____/\\____//____/   /_/ |_/___/_____/_____/_____/_/ |_|   /_____//____/\\____/_/  |_/_/   /_____/   ");
+
+    // Posisi awal teks
+    int x = max_x / 2;
+    int y = max_y;
+    int panah;
 
     // Mengaktifkan mode input mentah (menerima input apa adanya)
     raw();
@@ -19,20 +37,17 @@ int main()
     // Mencegah karakter yang ditekan muncul di layar
     noecho();
 
-    // Instruksi awal
-    mvprintw(0, 0, "Gunakan tombol panah untuk menggerakkan teks. Tekan 'q' untuk keluar.");
-
     // Loop untuk menangani input dan pergerakan
-    while ((ch = getch()) != 'q') // kita nunggu input ibarat cin biasa
+    while ((panah = getch()) != 'q') // kita nunggu input ibarat cin biasa
     {
         // Membersihkan layar setiap kali pergerakan terjadi
-        // clear();
-        refresh();
 
+        clear();
+        refresh();
         mvprintw(0, 0, "Gunakan tombol panah untuk menggerakkan teks. Tekan 'q' untuk keluar.");
 
         // Memeriksa tombol yang ditekan dan memperbarui posisi
-        switch (ch)
+        switch (panah)
         {
         case KEY_UP:
             y = (y > 0) ? y - 1 : y; // Mencegah keluar dari batas atas
@@ -51,38 +66,18 @@ int main()
             break;                          // Bergerak ke kanan
         }
 
-        // Debugging
-        string xTemp = to_string(x);
-        string yTemp = to_string(y);
-        string chTemp = to_string(ch);
-
-        mvprintw(1, 0, "x: ");
-        mvprintw(1, 4, xTemp.c_str());
-
-        mvprintw(2, 0, "y: ");
-        mvprintw(2, 4, yTemp.c_str());
-
-        mvprintw(3, 0, "in: ");
-        mvprintw(3, 4, chTemp.c_str());
-
         // menampilkan x pada posisi (y,x)
-        mvprintw(y, x, "Y");
+        mvprintw(y, x, "&");
 
         // Meng-update tampilan
         refresh();
     }
 
-    // mengakhiri mode ncurses
+    refresh();
+
+    clear();
+
     endwin();
 
-    endwin(); // Mengakhiri mode ncurses
-   
-  
-  
-  
-  
-  return 0;
-
-
-  
+    return 0;
 }
