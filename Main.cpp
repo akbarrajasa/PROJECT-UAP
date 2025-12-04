@@ -11,8 +11,12 @@ int main()
 
     int max_y;
     int max_x;
-
     getmaxyx(stdscr, max_y, max_x);
+
+    int musuh1 = 0;
+    int musuh2 = max_x - 2;
+    bool keadaan1 = true;
+    bool keadaan2 = false;
 
     int posisiJudulx = (max_x - 114) / 2;
     int posisiJuduly = max_y / 2;
@@ -66,11 +70,31 @@ int main()
             break;                          // Bergerak ke kanan
         }
 
+        //Pergerakan Musuh
+        if(keadaan1) musuh1++;
+        else musuh1--;
+
+        if(musuh1 >= max_x - 2) keadaan1 = false;
+        if(musuh1 <= 0) keadaan1 = true;
+
+        if(keadaan2) musuh2++;
+        else musuh2--;
+
+        if(musuh2 >= max_x - 2) keadaan2 = false;
+        if(musuh2 <= 0) keadaan2 = true;
+
         // menampilkan x pada posisi (y,x)
         mvprintw(y, x, "&");
 
+        // menampilkan musuh 
+        mvprintw(max_y / 2 - 1, musuh1, "Sigma");
+        mvprintw(max_y / 2 + 1, musuh2, "Skibidi")
+
         // Meng-update tampilan
         refresh();
+
+        // delay
+        usleep(80000);
     }
 
     refresh();
