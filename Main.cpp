@@ -268,8 +268,11 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
             getch(); 
 
     break;
+        }
+        
+        
 
-}
+
     
        refresh();
 
@@ -295,3 +298,78 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
             kena = true;
             mvprintw(max_y/2, max_x/2, "MENABRAK KERETA MALAM!!!");
         }
+
+
+        if (kena == true) {
+            nyawa = nyawa - 1;
+            flash();     
+            beep();      
+            refresh();   
+            Sleep(1000); 
+
+            if (nyawa<=0){
+            clear();
+            nodelay(stdscr, FALSE);
+            attron(COLOR_PAIR(1));
+            mvprintw(max_y/2 - 2, posisiKalahx, "  _      _      ._  .  __      _   _    _  __ .__      ");
+            mvprintw(max_y/2 - 1, posisiKalahx, " /  _|    /   \\     |   \\/   | |   _|    /  _  \\  \\   \\  /   / |   __||   _  \\     ");
+            mvprintw(max_y/2,     posisiKalahx, "|  |  _     /  ^  \\    |  \\  /  | |  |_      |  |  |  |  \\   \\/   /  |  |_   |  |)  |    ");
+            mvprintw(max_y/2 + 1, posisiKalahx, "|  | |_ |   /  /\\  \\   |  |\\/|  | |   |     |  |  |  |   \\      /   |   _|  |      /     ");
+            mvprintw(max_y/2 + 2, posisiKalahx, "|  || |  /  _  \\  |  |  |  | |  |_    |  `--'  |    \\    /    |  |_ |  |\\  \\----.");
+            mvprintw(max_y/2 + 3, posisiKalahx, " \\_| //     \\\\ ||  || |_|    \\/      \\/     |_|| | `._|");
+            attron(COLOR_PAIR(1));
+
+            refresh(); 
+            getch(); 
+            
+                            clear();
+    attron(COLOR_PAIR(5));
+    mvprintw(posisiScorey-8, posisiScorex, "   ____");
+    mvprintw(posisiScorey-7, posisiScorex, " / \\                             \\."); 
+    mvprintw(posisiScorey-6, posisiScorex, "|   |                            |.");
+    mvprintw(posisiScorey-5, posisiScorex, " \\_ |                            |.");
+    mvprintw(posisiScorey-4, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey-3, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey-2, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey-1, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey,   posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey+1, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey+2, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey+3, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey+4, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey+5, posisiScorex, "    |                            |.");
+    mvprintw(posisiScorey+6, posisiScorex, "    |   ___|_");
+    mvprintw(posisiScorey+7, posisiScorex, "    |  /                           /.");
+    mvprintw(posisiScorey+8, posisiScorex, "    \\/\\___/.");
+    attron(COLOR_PAIR(5));
+    attron(COLOR_PAIR(1));
+    mvprintw(posisiScorey-1, posisiScorex+10, "  TRY AGAIN!!!  ");
+    attroff(COLOR_PAIR(1));
+    attron(COLOR_PAIR(4));
+    mvprintw(posisiScorey+1,   posisiScorex+10, "  Score Akhir : ");
+    mvprintw(posisiScorey+1, posisiScorex+25, scoreTemp.c_str());
+    attroff(COLOR_PAIR(4));
+            refresh(); 
+            getch(); 
+
+            break;
+            
+            }else{
+            score = 0;
+            x = max_x/2;             
+            y = max_y-1;  
+            }  
+        
+
+        }
+    } 
+
+refresh();
+
+clear();
+
+endwin();
+
+return 0;
+
+}
