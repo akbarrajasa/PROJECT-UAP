@@ -157,3 +157,26 @@ int Loadingy = max_y/2;
     keypad(stdscr, TRUE);
     noecho();
     nodelay(stdscr, TRUE); 
+
+    while ((panah = getch()) != 'q')
+    {
+
+        clear();
+        refresh();
+        attron(COLOR_PAIR(2));
+        buatBingkai(max_y, max_x);
+        attroff(COLOR_PAIR(2));
+        attron(COLOR_PAIR(3));
+        string scoreTemp = to_string(score);
+        mvprintw(3, 2, "Score: ");
+        mvprintw(3, 9, scoreTemp.c_str());
+        string nyawaTemp = to_string(nyawa);
+        mvprintw(3, max_x-20, "Heart: ");
+        mvprintw(3, max_x-10, nyawaTemp.c_str());
+        mvprintw(1, 2, "[ || ]  [ > ]  [ <))) ]");
+        mvprintw(max_y-5, 2, " .-. ___|");
+        mvprintw(max_y-4, 2, " |=|/     /  \\ ");      
+        mvprintw(max_y-3, 2, " | |__|^^_|");     
+        mvprintw(max_y-2, 2, " ||[X]|_|");    
+        attroff(COLOR_PAIR(3));
+        
