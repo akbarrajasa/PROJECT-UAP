@@ -269,3 +269,29 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
 
     break;
 
+}
+    
+       refresh();
+
+       Sleep(30);
+
+        bool kena = false; 
+        if ( (y >= max_y - 30 and y < max_y - 30 + 8) and (x+10 >= musuh3 and x < musuh3 + 61) ) {    
+            kena = true;
+            mvprintw(max_y/2, max_x/2, "MENABRAK PESAWAT TNI!!!");
+        }
+
+        else if ( (y >= max_y - 13 and y < max_y - 13 + 5) and (x+10 >= musuh2 and x < musuh2 + 86) ) { 
+            kena = true;
+            mvprintw(max_y/2, max_x/2, "MENABRAK ROMBONGAN MOBIL!!!");
+        }
+
+        else if ( (y >= max_y - 21 and y < max_y - 21 + 7) and (x+10 >= musuh4 and x < musuh4 + 50) ) { 
+            kena = true;
+            mvprintw(max_y/2, max_x/2, "MENABRAK MOBIL PRIBADI!!!");
+        }
+
+        else if ( (y >= max_y - 37 and y < max_y - 37 + 5) and  (x+10 >= musuh5 and x < musuh5 + 61) ) { 
+            kena = true;
+            mvprintw(max_y/2, max_x/2, "MENABRAK KERETA MALAM!!!");
+        }
