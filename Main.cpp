@@ -1,1 +1,159 @@
+# include <ncurses/curses.h>
+# include <windows.h>
+# include <string>
+using namespace std;
+
+int max_y = 0, max_x = 0;
+int musuh2 = 50;
+int musuh3 = 0;
+int musuh4 = 0;
+int musuh5 = 0;
+
+void buatBingkai(int tinggi, int lebar) {
+    
+        for (int y = 0; y < tinggi; y++) {
+        mvaddch(y, 0, '|');           
+        mvaddch(y, lebar - 1, '|');   
+    }
+
+    for (int x = 0; x < lebar; x++) {
+        mvprintw(0, x, "=");           
+        mvprintw(tinggi - 1, x, "=");  
+    }
+}
+
+void RombonganMobil() {
  
+    musuh2 = musuh2+1;    
+if (musuh2 >= max_x) {
+    musuh2 = 0;
+}
+
+
+    attron(COLOR_PAIR(1));
+    mvprintw(max_y - 13, musuh2, "                                                         _________________________   ");
+    mvprintw(max_y - 12, musuh2, "                    /\\\\      _____          _____       |   |     |     |    | |  \\  ");
+    mvprintw(max_y - 11, musuh2, "     ,-----,       /  \\\\____/__|__\\_    ___/__|__\\___   |___|_____|_____|____|_|___\\ ");
+    mvprintw(max_y - 10, musuh2, "  ,--'---:---`--, /  |  _     |     `| |      |      `| |                    | |    \\ ");
+    mvprintw(max_y - 9,  musuh2, " ==(o)-----(o)==J    `(o)-------(o)=   `(o)------(o)'   `--(o)(o)--------------(o)--' ");
+    attroff(COLOR_PAIR(1));
+}
+
+void Pesawat() {
+ 
+    musuh3 = musuh3+1;    
+if (musuh3 >= max_x) {
+    musuh3 = 0;
+}
+
+
+    attron(COLOR_PAIR(1));
+    mvprintw(max_y - 30, musuh3, "            ______");
+    mvprintw(max_y - 29, musuh3, "            _\\ _~-\\___");
+    mvprintw(max_y - 28, musuh3, "    =  = ==(____AA____D");
+    mvprintw(max_y - 27, musuh3, "                \\_____\\___________________,-~~~~~~~`-.._");
+    mvprintw(max_y - 26, musuh3, "                /     o O o o o o O O o o o o o o O o  |\\_");
+    mvprintw(max_y - 25, musuh3, "                `~-.__        ___..----..                  )");
+    mvprintw(max_y - 24, musuh3, "                      `---~~\\___________/------------`````");
+    mvprintw(max_y - 23, musuh3, "                      =  ===(_________D");
+    attroff(COLOR_PAIR(1));
+}
+
+void MobilPribadi() {
+ 
+    musuh4 = musuh4-1;    
+if (musuh4 <= 0) {
+    musuh4 = max_x;
+}
+
+    attron(COLOR_PAIR(1));
+    mvprintw(max_y - 21, musuh4, "                                  @");
+    mvprintw(max_y - 20, musuh4, "               (__)    (__) _____/");
+    mvprintw(max_y - 19, musuh4, "            /| (oo) _  (oo)/----/_____    *");
+    mvprintw(max_y - 18, musuh4, "  _o\\______/_|\\_\\/_/_|__\\/|____|//////== *- * * -");
+    mvprintw(max_y - 17, musuh4, " /_________   \\   00 |   00 |       /== -* * -");
+    mvprintw(max_y - 16, musuh4, "[_____/^^\\_____\\_____|_____/^^\\_____]     *- * -");
+    mvprintw(max_y - 15, musuh4, "      \\__/                 \\__/");
+    attroff(COLOR_PAIR(1));
+}
+
+void KeretaMalam() {
+ 
+    musuh5 = musuh5-1;    
+if (musuh5 <= 0) {
+    musuh5 = max_x;
+}
+
+    attron(COLOR_PAIR(1));
+    mvprintw(max_y - 37, musuh5, "       o x o x o x o . . .");
+    mvprintw(max_y - 36, musuh5, "     o      _____            _______________ ___=====__T___");
+    mvprintw(max_y - 35, musuh5, "   .][__n_n_|DD[  ====_____  |    |.\\/.|   | |   |_|     |_");
+    mvprintw(max_y - 34, musuh5, "  >(________|__|_[_________]_|____|_/\\_|___|_|___________|_|");
+    mvprintw(max_y - 33, musuh5, "  _/oo OOOOO oo`  ooo   ooo   o^o       o^o   o^o     o^o");
+    attroff(COLOR_PAIR(1));
+}
+
+
+int main () {
+
+initscr();
+curs_set(0);
+start_color();
+init_pair(1, COLOR_RED, COLOR_BLACK);
+init_pair(2, COLOR_GREEN, COLOR_BLACK);
+init_pair(3, COLOR_MAGENTA,COLOR_BLACK);
+init_pair(4, COLOR_CYAN,COLOR_BLACK);
+init_pair(5, COLOR_YELLOW,COLOR_BLACK);
+
+getmaxyx(stdscr, max_y, max_x);
+int posisiJudulx = (max_x-61)/2;
+int posisiJuduly = max_y/2;
+int posisiMenangx = (max_x-76)/2;
+int posisiMenangy = max_y/2;
+int posisiScorey = max_y/2;
+int posisiScorex = (max_x-38)/2;
+int posisiKalahx = (max_x-94)/2;
+
+    musuh4 = max_x-49;
+    musuh5 = max_x/2-30; 
+
+    attron(COLOR_PAIR(1));
+mvprintw(posisiJuduly - 2, posisiJudulx, " _       _____  ______________  __  ____  __  ______________");
+mvprintw(posisiJuduly - 1, posisiJudulx, "| |     / /   |/_  __/ ____/ / / / / __ \\/ / / /_  __/ / / /");
+mvprintw(posisiJuduly,     posisiJudulx, "| | /| / / /| | / / / /   / /_/ / / / / / / / / / / / / / / ");
+mvprintw(posisiJuduly + 1, posisiJudulx, "| |/ |/ / ___ |/ / / /___/ __  / / /_/ / /_/ / / / /_/_/_/  ");
+mvprintw(posisiJuduly + 2, posisiJudulx, "|__/|__/_/  |_/_/  \\____/_/ /_/  \\____/\\____/ /_/ (_|_|_)   ");
+    attroff(COLOR_PAIR(1));
+    refresh();
+    getch();
+    clear();
+
+int Loadingx =(max_x-20)/2;
+int Loadingy = max_y/2;
+
+    for(int i = 0; i < 2; i++){
+        mvprintw(Loadingy-1, Loadingx, "Loading...");
+        mvprintw(Loadingy, Loadingx, "--------------------"); 
+        mvprintw(Loadingy+1, Loadingx, "|                  |");
+        mvprintw(Loadingy+2, Loadingx, "--------------------");
+
+        attron(COLOR_PAIR(2));
+        for (int f = 1; f < 18; f++){
+            mvprintw(Loadingy + 1, Loadingx + f, ">");
+            refresh(); 
+            Sleep(200); 
+        }
+        attroff(COLOR_PAIR(2));
+    }
+        refresh();
+
+    int x = max_x/2; 
+    int y = max_y-1; 
+    int panah;
+    int score = 0;
+    int nyawa = 3;
+
+    raw();
+    keypad(stdscr, TRUE);
+    noecho();
+    nodelay(stdscr, TRUE); 
