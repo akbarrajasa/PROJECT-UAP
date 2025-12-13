@@ -11,15 +11,15 @@
 
 1. Baca Input
    *Program ngecek apakah ada tombol yang dipencet
-   *Kalau ada (W/A/S/D), Posisi pemain (Koordinat x,y) terus diupdate
+   *Kalau ada (Arah keyboard), Posisi pemain (Koordinat X,Y) terus diupdate
    *Kalau tidak ada, Pemain diam tapi program lanjut terus
 
 2. Gerakan Musuh
-   *Setiap musuh posisinya digeser sesuai dengan kecepatannya masing masing
+   *Setiap musuh posisinya selalu digeser sesuai dengan koordinat Y nya masing masing
    *Kalau musuh jalan mentok sampai ke ujung kanan, maka dia dipindah ke ujung kiri (begitupun sebaliknya)
 
 3. Cek tabrakan
-   *Program ngecek apakah koordinat pemain sama dengan koordinat musuh
+   *Program ngecek apakah koordinat X dan Y pemain sama dengan koordinat musuh
    *Jika sama, nyawa berkurang dan posisi karakter pemain reset ke awal (start)
    *Jika tidak, maka permainan terus berlanjut
 
