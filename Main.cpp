@@ -174,10 +174,10 @@ int Loadingy = max_y/2;
         mvprintw(3, max_x-20, "Heart: ");
         mvprintw(3, max_x-10, nyawaTemp.c_str());
         mvprintw(1, 2, "[ || ]  [ > ]  [ <))) ]");
-        mvprintw(max_y-5, 2, " .-. ___|");
+        mvprintw(max_y-5, 2, " .-. _______|");
         mvprintw(max_y-4, 2, " |=|/     /  \\ ");      
-        mvprintw(max_y-3, 2, " | |__|^^_|");     
-        mvprintw(max_y-2, 2, " ||[X]|_|");    
+        mvprintw(max_y-3, 2, " | |_____|_^^_|");     
+        mvprintw(max_y-2, 2, " |_|_[X]_|____|");   
         attroff(COLOR_PAIR(3));
         
         switch (panah)
@@ -209,7 +209,6 @@ int Loadingy = max_y/2;
 
         }
 
-
         flushinp();
         attron(COLOR_PAIR(5));
         mvprintw(y, x, "\\ (^_^) /");
@@ -225,21 +224,20 @@ int Loadingy = max_y/2;
             clear(); 
 
             attron(COLOR_PAIR(2));
-mvprintw(posisiMenangy - 2, posisiMenangx, "_    _  _    _    _     _    _    _  _  .   .  _ ");
+mvprintw(posisiMenangy - 2, posisiMenangx, "____    ____  ______    __    __     ____    __    ____  __  .__   __.  __ ");
 mvprintw(posisiMenangy - 1, posisiMenangx, "\\   \\  /   / /  __  \\  |  |  |  |    \\   \\  /  \\  /   / |  | |  \\ |  | |  |");
 mvprintw(posisiMenangy,     posisiMenangx, " \\   \\/   / |  |  |  | |  |  |  |     \\   \\/    \\/   /  |  | |   \\|  | |  |");
 mvprintw(posisiMenangy + 1, posisiMenangx, "  \\_    _/  |  |  |  | |  |  |  |      \\            /   |  | |  . `  | |  |");
 mvprintw(posisiMenangy + 2, posisiMenangx, "    |  |    |  `--'  | |  `--'  |       \\    /\\    /    |  | |  |\\   | |__|");
-mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\/     || || \\| ()");
+mvprintw(posisiMenangy + 3, posisiMenangx, "    |__|     \\______/   \\______/         \\__/  \\__/     |__| |__| \\__| (__)");
             attroff(COLOR_PAIR(2));
             
-            refresh(); 
-            
+            refresh();         
             getch(); 
-          
                 clear();
+            
     attron(COLOR_PAIR(5));
-    mvprintw(posisiScorey-8, posisiScorex, "   ____");
+    mvprintw(posisiScorey-8, posisiScorex, "   ______________________________");
     mvprintw(posisiScorey-7, posisiScorex, " / \\                             \\."); 
     mvprintw(posisiScorey-6, posisiScorex, "|   |                            |.");
     mvprintw(posisiScorey-5, posisiScorex, " \\_ |                            |.");
@@ -253,9 +251,9 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
     mvprintw(posisiScorey+3, posisiScorex, "    |                            |.");
     mvprintw(posisiScorey+4, posisiScorex, "    |                            |.");
     mvprintw(posisiScorey+5, posisiScorex, "    |                            |.");
-    mvprintw(posisiScorey+6, posisiScorex, "    |   ___|_");
+    mvprintw(posisiScorey+6, posisiScorex, "    |   _________________________|___");
     mvprintw(posisiScorey+7, posisiScorex, "    |  /                           /.");
-    mvprintw(posisiScorey+8, posisiScorex, "    \\/\\___/.");
+    mvprintw(posisiScorey+8, posisiScorex, "    \\_/\\__________________________/.");;
     attroff(COLOR_PAIR(5));
     attron(COLOR_PAIR(2));
     mvprintw(posisiScorey-1, posisiScorex+10, "   GOOD JOB!!!  ");
@@ -266,39 +264,32 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
 
             refresh(); 
             getch(); 
-
     break;
         }
         
-        
-
-
-    
        refresh();
-
        Sleep(30);
 
         bool kena = false; 
         if ( (y >= max_y - 30 and y < max_y - 30 + 8) and (x+10 >= musuh3 and x < musuh3 + 61) ) {    
             kena = true;
-            mvprintw(max_y/2, max_x/2, "MENABRAK PESAWAT TNI!!!");
+            mvprintw(max_y/2, max_x/2-15, "MENABRAK PESAWAT TNI!!!");
         }
 
         else if ( (y >= max_y - 13 and y < max_y - 13 + 5) and (x+10 >= musuh2 and x < musuh2 + 86) ) { 
             kena = true;
-            mvprintw(max_y/2, max_x/2, "MENABRAK ROMBONGAN MOBIL!!!");
+            mvprintw(max_y/2, max_x/2-15, "MENABRAK ROMBONGAN MOBIL!!!");
         }
 
         else if ( (y >= max_y - 21 and y < max_y - 21 + 7) and (x+10 >= musuh4 and x < musuh4 + 50) ) { 
             kena = true;
-            mvprintw(max_y/2, max_x/2, "MENABRAK MOBIL PRIBADI!!!");
+            mvprintw(max_y/2, max_x/2-15, "MENABRAK MOBIL PRIBADI!!!");
         }
 
         else if ( (y >= max_y - 37 and y < max_y - 37 + 5) and  (x+10 >= musuh5 and x < musuh5 + 61) ) { 
             kena = true;
-            mvprintw(max_y/2, max_x/2, "MENABRAK KERETA MALAM!!!");
+            mvprintw(max_y/2, max_x/2-15, "MENABRAK KERETA MALAM!!!");
         }
-
 
         if (kena == true) {
             nyawa = nyawa - 1;
@@ -311,12 +302,12 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
             clear();
             nodelay(stdscr, FALSE);
             attron(COLOR_PAIR(1));
-            mvprintw(max_y/2 - 2, posisiKalahx, "  _      _      ._  .  __      _   _    _  __ .__      ");
-            mvprintw(max_y/2 - 1, posisiKalahx, " /  _|    /   \\     |   \\/   | |   _|    /  _  \\  \\   \\  /   / |   __||   _  \\     ");
-            mvprintw(max_y/2,     posisiKalahx, "|  |  _     /  ^  \\    |  \\  /  | |  |_      |  |  |  |  \\   \\/   /  |  |_   |  |)  |    ");
-            mvprintw(max_y/2 + 1, posisiKalahx, "|  | |_ |   /  /\\  \\   |  |\\/|  | |   |     |  |  |  |   \\      /   |   _|  |      /     ");
-            mvprintw(max_y/2 + 2, posisiKalahx, "|  || |  /  _  \\  |  |  |  | |  |_    |  `--'  |    \\    /    |  |_ |  |\\  \\----.");
-            mvprintw(max_y/2 + 3, posisiKalahx, " \\_| //     \\\\ ||  || |_|    \\/      \\/     |_|| | `._|");
+            mvprintw(max_y/2 - 2, posisiKalahx, "  _______      ___      .___  ___.  _______      ______   ____    ____  _______ .______      ");
+            mvprintw(max_y/2 - 1, posisiKalahx, " /  _____|    /   \\     |   \\/   | |   ____|    /  __  \\  \\   \\  /   / |   ____||   _  \\     ");
+            mvprintw(max_y/2,     posisiKalahx, "|  |  __     /  ^  \\    |  \\  /  | |  |__      |  |  |  |  \\   \\/   /  |  |__   |  |_)  |    ");
+            mvprintw(max_y/2 + 1, posisiKalahx, "|  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|     |  |  |  |   \\      /   |   __|  |      /     ");
+            mvprintw(max_y/2 + 2, posisiKalahx, "|  |__| |  /  _____  \\  |  |  |  | |  |____    |  `--'  |    \\    /    |  |____ |  |\\  \\----.");
+            mvprintw(max_y/2 + 3, posisiKalahx, " \\______| /__/     \\__\\ |__|  |__| |_______|    \\______/      \\__/     |_______|| _| `._____|");
             attron(COLOR_PAIR(1));
 
             refresh(); 
@@ -324,7 +315,7 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
             
                             clear();
     attron(COLOR_PAIR(5));
-    mvprintw(posisiScorey-8, posisiScorex, "   ____");
+    mvprintw(posisiScorey-8, posisiScorex, "   ______________________________");
     mvprintw(posisiScorey-7, posisiScorex, " / \\                             \\."); 
     mvprintw(posisiScorey-6, posisiScorex, "|   |                            |.");
     mvprintw(posisiScorey-5, posisiScorex, " \\_ |                            |.");
@@ -338,9 +329,9 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
     mvprintw(posisiScorey+3, posisiScorex, "    |                            |.");
     mvprintw(posisiScorey+4, posisiScorex, "    |                            |.");
     mvprintw(posisiScorey+5, posisiScorex, "    |                            |.");
-    mvprintw(posisiScorey+6, posisiScorex, "    |   ___|_");
+    mvprintw(posisiScorey+6, posisiScorex, "    |   _________________________|___");
     mvprintw(posisiScorey+7, posisiScorex, "    |  /                           /.");
-    mvprintw(posisiScorey+8, posisiScorex, "    \\/\\___/.");
+    mvprintw(posisiScorey+8, posisiScorex, "    \\_/\\__________________________/.");
     attron(COLOR_PAIR(5));
     attron(COLOR_PAIR(1));
     mvprintw(posisiScorey-1, posisiScorex+10, "  TRY AGAIN!!!  ");
@@ -359,8 +350,6 @@ mvprintw(posisiMenangy + 3, posisiMenangx, "    ||     \\/   \\/         \\/  \\
             x = max_x/2;             
             y = max_y-1;  
             }  
-        
-
         }
     } 
 
